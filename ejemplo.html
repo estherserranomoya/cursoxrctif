@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <!-- Cámara con controles para simular caminata -->
+      <a-entity camera wasd-controls position="0 1.6 5"></a-entity>
+
+      <!-- Caja grande con cara frontal abierta (para poder entrar) -->
+      <a-box position="0 2.5 -5"
+             depth="10" height="5" width="10"
+             color="#888"
+             material="side: double; opacity: 0.5">
+      </a-box>
+
+      <!-- Animación dentro de la caja grande -->
+      <a-box position="0 1 -5"
+             color="#4CC3D9"
+             animation="property: rotation; to: 0 360 0; dur: 4000; easing: linear; loop: true"
+             animation__2="property: position; to: -1 5 -5; dur: 2000; loop: true; dir: alternate">
+      </a-box>
+
+      <!-- Cielo -->
+      <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
+  </body>
+</html>
