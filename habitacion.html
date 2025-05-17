@@ -5,9 +5,7 @@
   </head>
   <body>
     <a-scene>
-
-        <!-- CAJA CON PUERTA - MYSTERY BOX - EXPLICACIÓN ACTIVIDAD -->
-
+<!-- CAJA CON PUERTA - MYSTERY BOX - EXPLICACIÓN ACTIVIDAD -->
         <!-- Lado izquierdo -->
         <a-box position="-1 1 -1" height="2" width="0.1" depth="2" color="#4CC3D9"></a-box>
         <!-- Lado derecho -->
@@ -26,10 +24,16 @@
         <!-- Parte superior de la puerta -->
         <a-box position="0 1.75 -2" height="0.5" width="1" depth="0.1" color="#FF69B4"></a-box>
 
+<<<<<<< HEAD
+<!-- Cartel flotante en el interior de la caja -->
+<a-plane position="0 1.5 -1" width="1.8" height="1" color="#222222" opacity="0.9"></a-plane>
+<!-- Texto explicativo centrado dentro del cartel -->
+=======
 <!-- Cartel flotante en el interior de la caja -->
 <a-plane position="0 1.5 -1" width="1.8" height="1" color="#222222" opacity="0.9"></a-plane>
 
 <!-- Texto explicativo centrado dentro del cartel -->
+>>>>>>> 786e94081be4ff54f5cfd545b9462392fbe4925c
 <a-text value="In this activity, you must walk around and enter the other boxes to describe what you see inside. The other students will ask you questions to try to guess what is inside the mystery box."
          position="0 1.5 -0.99"
          width="1.6"
@@ -40,6 +44,16 @@
          font="mozillavr">
 </a-text>
 
+<<<<<<< HEAD
+<!-- Cámara con controles para caminar desde nivel del suelo -->
+<a-entity camera
+          position="0 1.6 0"
+          look-controls
+          wasd-controls="acceleration: 20">
+</a-entity>
+        <a-sky color="#454545"></a-sky>
+     </a-scene>
+=======
 <!-- Controls and Camera -->
                 <a-entity id="cameraRig" position="2 1.6 0.5">
                         <a-entity id="head" camera babia-camera="raycasterMouse: .babiaxraycasterclass; 
@@ -50,6 +64,7 @@
                 </a-entity>
 
         </a-scene>
+>>>>>>> 786e94081be4ff54f5cfd545b9462392fbe4925c
   </body>
 </html>
          
