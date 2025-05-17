@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Mystery Box</title>
+    <title>Mystery Box - Actividad Virtual</title>
     <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
     <style>
       body { margin: 0; overflow: hidden; }
@@ -13,75 +13,22 @@
       <!-- Título -->
       <a-text value="Mystery Box" position="0 3.8 -4" align="center" color="#000" width="6" font="mozillavr"></a-text>
 
-      <!-- Descripción más abajo -->
-      <a-text value="Look closely!\nAnswer your friends’ questions with full sentences." 
-              position="0 3.2 -4" align="center" color="#111" width="5"></a-text>
+      <!-- Descripción -->
+      <a-text value="Look closely!\nGuess what it is.\nAnswer your friends’ questions with full sentences." 
+              position="0 3.0 -4" align="center" color="#111" width="5"></a-text>
 
-      <!-- Interrogaciones flotantes en diferentes posiciones y colores -->
-      <a-entity id="question-marks">
-        <a-image src="https://upload.wikimedia.org/wikipedia/commons/5/55/Black_question_mark.svg"
-                 position="-2 2 -4" color="#FF0000" width="0.8" height="1"
-                 animation="property: position; dir: alternate; dur: 3000; to: -2 2.5 -4; loop: true"></a-image>
+      <!-- Interrogaciones flotantes de colores alrededor del título -->
+      <a-entity>
+        <a-text value="?" position="-2 4.3 -4" color="#FF0000" width="1.5"
+                animation__float="property: position; dir: alternate; dur: 3000; to: -2 4.6 -4; loop: true"
+                animation__spin="property: rotation; to: 0 360 0; dur: 4000; easing: linear; loop: true"></a-text>
 
-        <a-image src="https://upload.wikimedia.org/wikipedia/commons/5/55/Black_question_mark.svg"
-                 position="2 1.8 -4" color="#00FF00" width="0.6" height="0.9"
-                 animation="property: position; dir: alternate; dur: 2800; to: 2 2.3 -4; loop: true"></a-image>
+        <a-text value="?" position="2 4.1 -4" color="#00FF00" width="1.2"
+                animation__float="property: position; dir: alternate; dur: 2800; to: 2 4.4 -4; loop: true"
+                animation__spin="property: rotation; to: 0 360 0; dur: 3500; easing: linear; loop: true"></a-text>
 
-        <a-image src="https://upload.wikimedia.org/wikipedia/commons/5/55/Black_question_mark.svg"
-                 position="-1.5 2.2 -3.5" color="#0000FF" width="0.7" height="1"
-                 animation="property: position; dir: alternate; dur: 3500; to: -1.5 2.7 -3.5; loop: true"></a-image>
+        <a-text value="?" position="-1.5 4.5 -4" color="#0000FF" width="1.3"
+                animation__float="property: position; dir: alternate; dur: 3200; to: -1.5 4.8 -4; loop: true"
+                animation__spin="property: rotation; to: 0 360 0; dur: 3000; easing: linear; loop: true"></a-text>
 
-        <a-image src="https://upload.wikimedia.org/wikipedia/commons/5/55/Black_question_mark.svg"
-                 position="1.5 2.5 -4.2" color="#FFA500" width="0.7" height="1"
-                 animation="property: position; dir: alternate; dur: 3200; to: 1.5 3.0 -4.2; loop: true"></a-image>
-
-        <a-image src="https://upload.wikimedia.org/wikipedia/commons/5/55/Black_question_mark.svg"
-                 position="0 2.8 -4" color="#800080" width="1" height="1.2"
-                 animation="property: position; dir: alternate; dur: 3000; to: 0 3.3 -4; loop: true"></a-image>
-
-        <a-image src="https://upload.wikimedia.org/wikipedia/commons/5/55/Black_question_mark.svg"
-                 position="-2.5 1.5 -4.5" color="#00CED1" width="0.6" height="0.9"
-                 animation="property: position; dir: alternate; dur: 2700; to: -2.5 2.0 -4.5; loop: true"></a-image>
-
-        <a-image src="https://upload.wikimedia.org/wikipedia/commons/5/55/Black_question_mark.svg"
-                 position="2.5 1.2 -3.8" color="#DC143C" width="0.6" height="0.9"
-                 animation="property: position; dir: alternate; dur: 2500; to: 2.5 1.7 -3.8; loop: true"></a-image>
-
-        <a-image src="https://upload.wikimedia.org/wikipedia/commons/5/55/Black_question_mark.svg"
-                 position="0.5 2.2 -4.3" color="#2E8B57" width="0.8" height="1"
-                 animation="property: position; dir: alternate; dur: 2600; to: 0.5 2.7 -4.3; loop: true"></a-image>
-      </a-entity>
-
-      <!-- Caja girando continuamente -->
-      <a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"
-             animation="property: rotation; to: 0 360 0; dur: 4000; easing: linear; loop: true">
-      </a-box>
-
-      <!-- Esfera con animación de latido -->
-      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"
-                animation="property: scale; 
-                           dir: alternate;
-                           dur: 1000; 
-                           easing: easeInOutSine;
-                           to: 1.3 1.3 1.3; 
-                           loop: true">
-      </a-sphere>
-
-      <!-- Cilindro que sube y baja suavemente -->
-      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"
-                  animation="property: position; 
-                             dir: alternate;
-                             dur: 1500;
-                             easing: easeInOutSine;
-                             to: 1 1 -3;
-                             loop: true">
-      </a-cylinder>
-
-      <!-- Suelo -->
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
-
-      <!-- Cielo -->
-      <a-sky color="#ECECEC"></a-sky>
-    </a-scene>
-  </body>
-</html>
+        <a-text
