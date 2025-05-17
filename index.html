@@ -4,17 +4,26 @@
   </head>
   <body>
     <a-scene>
-      <a-box position="5 0.5 -3" rotation="0 45 0" color="#00FF00" animation="property: rotation; to: 0 360 0; dur: 4000; loop: true; easing: linear"></a-box>
-    <a-sphere position="-1 1.25 -5" radius="1.25" color="#EF2D5E"
-          animation__bounce="property: position; 
-                            dir: alternate; 
-                            dur: 2000; 
-                            loop: true; 
-                            to: -1 1.25 -5; 
-                            easing: easeInOutSine">
+      
+      <!-- Caja girando sobre sí misma, en contacto con el plano -->
+      <a-box position="5 0.5 -3" rotation="0 0 0" color="#00FF00"
+             animation="property: rotation; to: 0 360 0; dur: 4000; loop: true; easing: linear">
+      </a-box>
+      
+      <!-- Esfera haciendo un rebote sutil, sin despegar del suelo -->
+      <a-sphere position="-1 1.25 -5" radius="1.25" color="#EF2D5E"
+                animation="property: scale; to: 1 0.9 1; dir: alternate; dur: 800; loop: true; easing: easeInOutSine">
       </a-sphere>
-      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" animation="property: rotation; to: 360 180 90; dur: 4000; loop: true; easing: linear"></a-cylinder>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+      
+      <!-- Cilindro girando sobre el eje vertical -->
+      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"
+                  animation="property: rotation; to: 0 360 0; dur: 4000; loop: true; easing: linear">
+      </a-cylinder>
+      
+      <!-- Plano del suelo -->
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
+      
+      <!-- Cielo -->
       <a-sky color="#ECECEC"></a-sky>
     </a-scene>
   </body>
