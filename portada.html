@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Mystery Box - Actividad Virtual</title>
-    <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+    <title>Mystery Box </title>
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
     <style>
       body { margin: 0; overflow: hidden; }
       #logo {
@@ -20,15 +21,17 @@
     <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Mystery_box_icon.png/512px-Mystery_box_icon.png" alt="Mystery Box">
 
     <a-scene>
-      <!-- Título flotante -->
-      <a-text value="Mystery Box" position="0 4.5 -4" align="center" color="#000" width="6" font="mozillavr"></a-text>
+      <!-- Título flotante, un poco más abajo -->
+      <a-text value="Mystery Box" position="0 3.8 -4" align="center" color="#000" width="6" font="mozillavr"></a-text>
 
-<!-- Título flotante -->
-<a-text value="Mystery Box" position="0 4.5 -4" align="center" color="#000" width="6" font="mozillavr"></a-text>
+      <!-- Descripción justo debajo del título -->
+      <a-text value="Look closely!\nAnswer your friends’ questions with full sentences." 
+              position="0 3.3 -4" align="center" color="#111" width="5"></a-text>
 
-<!-- Descripción entre título y esfera -->
-<a-text value="Look closely!\nGuess what it is.\nAnswer your friends’ questions with full sentences." 
-        position="0 3.2 -4" align="center" color="#111" width="5"></a-text>
+      <!-- Caja girando continuamente -->
+      <a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"
+             animation="property: rotation; to: 0 360 0; dur: 4000; easing: linear; loop: true">
+      </a-box>
 
       <!-- Esfera con animación de latido -->
       <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"
@@ -38,13 +41,7 @@
                            easing: easeInOutSine;
                            to: 1.3 1.3 1.3; 
                            loop: true">
-      
-            <!-- Caja girando continuamente -->
-      <a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"
-             animation="property: rotation; to: 0 360 0; dur: 4000; easing: linear; loop: true">
-      </a-box>
-      
-                          </a-sphere>
+      </a-sphere>
 
       <!-- Cilindro que sube y baja suavemente -->
       <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"
@@ -55,9 +52,6 @@
                              to: 1 1 -3;
                              loop: true">
       </a-cylinder>
-
-      <!-- Cámara colocada justo frente al contenido -->
-      <a-entity camera position="0 1.6 2"></a-entity>
 
       <!-- Suelo -->
       <a-plane position="0 0 -4" rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
