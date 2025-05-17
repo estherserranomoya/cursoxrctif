@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+     <title>Habitación Esther  </title>
+  </head>
+  <body>
+    <a-scene>
+<!-- CAJA CON PUERTA - MYSTERY BOX - 1 -->
+
+<!-- Lado izquierdo -->
+<a-box position="-1 1 -1" height="2" width="0.1" depth="2" color="#4CC3D9"></a-box>
+<!-- Lado derecho -->
+<a-box position="1 1 -1" height="2" width="0.1" depth="2" color="#FFB6C1"></a-box>
+<!-- Lado trasero -->
+<a-box position="0 1 0" height="2" width="2" depth="0.1" color="#FF00FF"></a-box>
+<!-- Lado frontal -->
+<a-box position="0 1 -2" height="2" width="2" depth="0.1" color="#FFD700"></a-box>
+<!-- Base -->
+<a-box position="0 0 -1" height="0.1" width="2" depth="2" color="#FF7F50"></a-box>
+<!-- Tapa -->
+<a-box position="0 2 -1" height="0.1" width="2" depth="2" color="#2F4F4F"></a-box>
+
+<!-- Cubo giratorio en el centro interior -->
+      <a-box position="0 1 -1" rotation="0 45 0" color="#00FF00"
+             animation="property: rotation; to: 0 360 0; dur: 4000; loop: true; easing: linear"></a-box>
+
+      <!-- Cámara -->
+      <a-entity position="0 1.4 3">
+        <a-camera></a-camera>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
+         
