@@ -17,9 +17,6 @@
     </style>
   </head>
   <body>
-    <!-- Imagen/logo decorativa -->
-    <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Mystery_box_icon.png/512px-Mystery_box_icon.png" alt="Mystery Box">
-
     <a-scene>
       <!-- Título flotante, un poco más abajo -->
       <a-text value="Mystery Box" position="0 3.8 -4" align="center" color="#000" width="6" font="mozillavr"></a-text>
@@ -55,6 +52,48 @@
 
       <!-- Suelo -->
       <a-plane position="0 0 -4" rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
+
+      <!-- Interrogaciones grandes, coloridas y cayendo más rápido justo encima del título -->
+      <a-text value="?" color="#FF0000" width="24" position="2.07 3.2 -3.45"
+        animation="property: position; to: 2.07 -1 -3.45; dur: 3000; easing: linear; loop: true"
+        animation__color="property: color; from: #FF0000; to: #FFA500; dir: alternate; dur: 3000; loop: true">
+      </a-text>
+      <a-text value="?" color="#00FF00" width="24" position="2.87 3.2 -3.3"
+        animation="property: position; to: 2.87 -1 -3.3; dur: 3100; easing: linear; loop: true"
+        animation__color="property: color; from: #00FF00; to: #800080; dir: alternate; dur: 3000; loop: true">
+      </a-text>
+      <a-text value="?" color="#0000FF" width="24" position="-1.82 3.2 -3.46"
+        animation="property: position; to: -1.82 -1 -3.46; dur: 2900; easing: linear; loop: true"
+        animation__color="property: color; from: #0000FF; to: #00CED1; dir: alternate; dur: 3000; loop: true">
+      </a-text>
+      <a-text value="?" color="#FFA500" width="24" position="1.93 3.2 -3.25"
+        animation="property: position; to: 1.93 -1 -3.25; dur: 2700; easing: linear; loop: true"
+        animation__color="property: color; from: #FFA500; to: #DC143C; dir: alternate; dur: 3000; loop: true">
+      </a-text>
+      <a-text value="?" color="#800080" width="24" position="1.3 3.2 -3.55"
+        animation="property: position; to: 1.3 -1 -3.55; dur: 2800; easing: linear; loop: true"
+        animation__color="property: color; from: #800080; to: #2E8B57; dir: alternate; dur: 3000; loop: true">
+      </a-text>
+      <a-text value="?" color="#00CED1" width="24" position="3.35 3.2 -3.21"
+        animation="property: position; to: 3.35 -1 -3.21; dur: 2900; easing: linear; loop: true"
+        animation__color="property: color; from: #00CED1; to: #FF69B4; dir: alternate; dur: 3000; loop: true">
+      </a-text>
+      <a-text value="?" color="#DC143C" width="24" position="-2.98 3.2 -3.26"
+        animation="property: position; to: -2.98 -1 -3.26; dur: 3000; easing: linear; loop: true"
+        animation__color="property: color; from: #DC143C; to: #FFD700; dir: alternate; dur: 3000; loop: true">
+      </a-text>
+      <a-text value="?" color="#2E8B57" width="24" position="0.55 3.2 -3.3"
+        animation="property: position; to: 0.55 -1 -3.3; dur: 3050; easing: linear; loop: true"
+        animation__color="property: color; from: #2E8B57; to: #FF0000; dir: alternate; dur: 3000; loop: true">
+      </a-text>
+      <a-text value="?" color="#FF69B4" width="24" position="-0.75 3.2 -3.51"
+        animation="property: position; to: -0.75 -1 -3.51; dur: 2950; easing: linear; loop: true"
+        animation__color="property: color; from: #FF69B4; to: #00FF00; dir: alternate; dur: 3000; loop: true">
+      </a-text>
+      <a-text value="?" color="#FFD700" width="24" position="2.31 3.2 -3.55"
+        animation="property: position; to: 2.31 -1 -3.55; dur: 2800; easing: linear; loop: true"
+        animation__color="property: color; from: #FFD700; to: #0000FF; dir: alternate; dur: 3000; loop: true">
+      </a-text>
 
       <!-- Cielo -->
       <a-sky color="#ECECEC"></a-sky>
