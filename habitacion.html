@@ -24,6 +24,9 @@
   </head>
   <body>
     <a-scene>
+
+        <!-- CAJA CON PUERTA - MYSTERY BOX - EXPLICACIÓN ACTIVIDAD -->
+
         <!-- Lado izquierdo -->
         <a-box position="-1 1 -1" height="2" width="0.1" depth="2" color="#4CC3D9"></a-box>
         <!-- Lado derecho -->
@@ -42,16 +45,21 @@
         <!-- Parte superior de la puerta -->
         <a-box position="0 1.75 -2" height="0.5" width="1" depth="0.1" color="#FF69B4"></a-box>
 
-        <a-text value="MYSTERY BOX"
-        position="0 2.1 -2.01"
-        align="center"
-        width="3"
-        color="#FFFFFF"
-        font="mozillavr">
-        </a-text>
+      <!-- Fondo del cartel en la pared trasera, mirando hacia la entrada -->
+<a-plane position="0 1.7 -0.06" width="1.8" height="1" color="#222222" opacity="0.85"></a-plane>
+
+<!-- Texto explicativo corregido -->
+<a-text value="In this activity, you must walk around and enter the other boxes to describe what you see inside. The other students will ask you questions to try to guess what is inside the mystery box."
+         position="0 1.9 -0.05"
+         width="1.7"
+         align="center"
+         wrap-count="60"
+         color="#FFFFFF"
+         font="mozillavr">
+</a-text>
 
 
-        <!-- SEGUNDA CAJA COMPLETA - MISTERY BOX 1 -->
+        <!-- SEGUNDA CAJA COMPLETA - MYSTERY BOX 1 -->
 <!-- Lado izquierdo -->
 <a-box position="2 -1 -1" height="2" width="0.1" depth="2" color="#4CC3D9"></a-box>
 <!-- Lado derecho -->
