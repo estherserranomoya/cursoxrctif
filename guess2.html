@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Oso en HTML y CSS</title>
+  <style>
+    body {
+      background: #fbeec1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .oso {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      background: #8b5e3c;
+      border-radius: 50%;
+    }
+
+    /* Orejas */
+    .oreja {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: #8b5e3c;
+      border-radius: 50%;
+      top: -20px;
+    }
+
+    .oreja.izquierda {
+      left: -20px;
+    }
+
+    .oreja.derecha {
+      right: -20px;
+    }
+
+    /* Cara interior */
+    .cara {
+      position: absolute;
+      top: 110px;
