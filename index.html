@@ -1,28 +1,40 @@
+<!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <title>Escena A-Frame Animada</title>
     <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
   </head>
   <body>
     <a-scene>
-      
-      <!-- Caja girando sobre sí misma, en contacto con el plano -->
-      <a-box position="5 0.5 -3" rotation="0 0 0" color="#00FF00"
-             animation="property: rotation; to: 0 360 0; dur: 4000; loop: true; easing: linear">
+      <!-- Caja girando continuamente -->
+      <a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"
+             animation="property: rotation; to: 0 360 0; dur: 4000; easing: linear; loop: true">
       </a-box>
-      
-      <!-- Esfera haciendo un rebote sutil, sin despegar del suelo -->
-      <a-sphere position="-1 1.25 -5" radius="1.25" color="#EF2D5E"
-                animation="property: scale; to: 1 0.9 1; dir: alternate; dur: 800; loop: true; easing: easeInOutSine">
+
+      <!-- Esfera con animación de latido -->
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"
+                animation="property: scale; 
+                           dir: alternate;
+                           dur: 1000; 
+                           easing: easeInOutSine;
+                           to: 1.3 1.3 1.3; 
+                           loop: true">
       </a-sphere>
-      
-      <!-- Cilindro girando sobre el eje vertical -->
+
+      <!-- Cilindro que sube y baja suavemente -->
       <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"
-                  animation="property: rotation; to: 0 360 0; dur: 4000; loop: true; easing: linear">
+                  animation="property: position; 
+                             dir: alternate;
+                             dur: 1500;
+                             easing: easeInOutSine;
+                             to: 1 1 -3;
+                             loop: true">
       </a-cylinder>
-      
-      <!-- Plano del suelo -->
+
+      <!-- Suelo -->
       <a-plane position="0 0 -4" rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
-      
+
       <!-- Cielo -->
       <a-sky color="#ECECEC"></a-sky>
     </a-scene>
