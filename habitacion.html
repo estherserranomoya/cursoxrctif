@@ -2,26 +2,8 @@
   <head>
     <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
      <title>Habitación Esther  </title>
-
-<!-- Cámara con controles de movimiento -->
-<a-entity id="cameraRig" position="0 1.6 3">
-  <a-camera wasd-controls-enabled="true" look-controls="true">
-    <!-- Cruz de puntería para VR -->
-    <a-cursor color="white"></a-cursor>
-  </a-camera>
-</a-entity>
-
-<!-- Activador de realidad virtual y aumentada -->
-<a-entity webxr="optionalFeatures: hit-test; mode: immersive-ar"></a-entity>
-<a-scene
-  vr-mode-ui="enabled: true"
-  embedded
-  arjs="sourceType: webcam; debugUIEnabled: false;"
-  renderer="logarithmicDepthBuffer: true;"
-  xr-mode="immersive-ar"
-  xr="optionalFeatures: local-floor, bounded-floor"
-
   </head>
+
   <body>
     <a-scene>
 
@@ -48,7 +30,7 @@
       <!-- Fondo del cartel en la pared trasera, mirando hacia la entrada -->
 <a-plane position="0 1.7 -0.06" width="1.8" height="1" color="#222222" opacity="0.85"></a-plane>
 
-<!-- Texto explicativo corregido -->
+<!-- Texto explicativo -->
 <a-text value="In this activity, you must walk around and enter the other boxes to describe what you see inside. The other students will ask you questions to try to guess what is inside the mystery box."
          position="0 1.9 -0.05"
          width="1.7"
@@ -59,30 +41,11 @@
 </a-text>
 
 
-        <!-- SEGUNDA CAJA COMPLETA - MYSTERY BOX 1 -->
-<!-- Lado izquierdo -->
-<a-box position="2 -1 -1" height="2" width="0.1" depth="2" color="#4CC3D9"></a-box>
-<!-- Lado derecho -->
-<a-box position="4 -1 -1" height="2" width="0.1" depth="2" color="#FFB6C1"></a-box>
-<!-- Lado trasero -->
-<a-box position="3 -1 0" height="2" width="2" depth="0.1" color="#FF00FF"></a-box>
-<!-- Lado frontal -->
-<a-box position="3 -1 -2" height="2" width="2" depth="0.1" color="#FF69B4"></a-box>
-<!-- Base -->
-<a-box position="3 -2 -1" height="0.1" width="2" depth="2" color="#FF7F50"></a-box>
-<!-- Tapa -->
-<a-box position="3 0 -1" height="0.1" width="2" depth="2" color="#2F4F4F"></a-box>
-<!-- LETRERO Mystery Box 1 -->
-<a-text value="MYSTERY BOX 1"
-        position="3 0.1 -2.01"
-        align="center"
-        width="3"
-        color="#FFFFFF"
-        font="mozillavr">
-</a-text>
-
-        
-        <a-sky color="#454545"></a-sky>
-     </a-scene>
-  </body>
-</html>
+<!-- Controls and Camera -->
+                <a-entity id="cameraRig" position="2 1.6 0.5">
+                        <a-entity id="head" camera babia-camera="raycasterMouse: .babiaxraycasterclass; 
+                        raycasterHand: .babiaxraycasterclass; teleportCollision: #floorRoom" 
+                        look-controls wasd-controls="fly: false">
+                        <a-entity></a-entity>
+                        </a-entity>
+                </a-entity>
