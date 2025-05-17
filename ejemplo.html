@@ -1,91 +1,79 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <title>Mystery Box - Actividad Virtual</title>
+    <meta charset="utf-8">
+    <title>Mystery Box</title>
     <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
-    <style>
-      body { margin: 0; overflow: hidden; }
-    </style>
   </head>
   <body>
     <a-scene>
-      <!-- Luz ambiental para ver mejor -->
-      <a-light type="ambient" color="#BBB"></a-light>
-      <a-light type="point" position="0 5 0" intensity="0.7"></a-light>
-
       <!-- Título -->
-      <a-text value="Mystery Box" position="0 3.8 -4" align="center" color="#000" width="7" font="mozillavr"></a-text>
+      <a-text value="Mystery Box" align="center" position="0 2.5 -3" width="6" color="#222"></a-text>
 
       <!-- Descripción -->
-      <a-text value="Look closely!\nDon't say what it is.\nAnswer your friends’ questions with full sentences." 
-              position="0 3.0 -4" align="center" color="#111" width="5"></a-text>
+      <a-text value="Look at the object. Answer your friends’ questions with full sentences." align="center" position="0 2.1 -3" width="4.5" color="#444"></a-text>
 
-      <!-- Interrogaciones flotantes de colores con animación de color -->
-      <a-entity>
-        <a-text value="?" position="-3 4.8 -3.3" color="#FF0000" width="18"
-                animation__float="property: position; dir: alternate; dur: 3500; to: -3 5.1 -3.3; loop: true"
-                animation__spin="property: rotation; to: 0 360 0; dur: 6000; easing: linear; loop: true"
-                animation__color="property: color; from: #FF0000; to: #FF69B4; dir: alternate; dur: 4000; loop: true"></a-text>
+      <!-- Interrogaciones grandes, coloridas y cayendo más rápido justo encima del título -->
+      <a-text value="?" color="#FF0000" width="24" position="2.07 3.2 -3.45"
+        animation="property: position; to: 2.07 -1 -3.45; dur: 3000; easing: linear; loop: true"
+        animation__color="property: color; from: #FF0000; to: #FFA500; dir: alternate; dur: 3000; loop: true">
+      </a-text>
+      <a-text value="?" color="#00FF00" width="24" position="2.87 3.2 -3.3"
+        animation="property: position; to: 2.87 -1 -3.3; dur: 3100; easing: linear; loop: true"
+        animation__color="property: color; from: #00FF00; to: #800080; dir: alternate; dur: 3000; loop: true">
+      </a-text>
+      <a-text value="?" color="#0000FF" width="24" position="-1.82 3.2 -3.46"
+        animation="property: position; to: -1.82 -1 -3.46; dur: 2900; easing: linear; loop: true"
+        animation__color="property: color; from: #0000FF; to: #00CED1; dir: alternate; dur: 3000; loop: true">
+      </a-text>
+      <a-text value="?" color="#FFA500" width="24" position="1.93 3.2 -3.25"
+        animation="property: position; to: 1.93 -1 -3.25; dur: 2700; easing: linear; loop: true"
+        animation__color="property: color; from: #FFA500; to: #DC143C; dir: alternate; dur: 3000; loop: true">
+      </a-text>
+      <a-text value="?" color="#800080" width="24" position="1.3 3.2 -3.55"
+        animation="property: position; to: 1.3 -1 -3.55; dur: 2800; easing: linear; loop: true"
+        animation__color="property: color; from: #800080; to: #2E8B57; dir: alternate; dur: 3000; loop: true">
+      </a-text>
+      <a-text value="?" color="#00CED1" width="24" position="3.35 3.2 -3.21"
+        animation="property: position; to: 3.35 -1 -3.21; dur: 2900; easing: linear; loop: true"
+        animation__color="property: color; from: #00CED1; to: #FF69B4; dir: alternate; dur: 3000; loop: true">
+      </a-text>
+      <a-text value="?" color="#DC143C" width="24" position="-2.98 3.2 -3.26"
+        animation="property: position; to: -2.98 -1 -3.26; dur: 3000; easing: linear; loop: true"
+        animation__color="property: color; from: #DC143C; to: #FFD700; dir: alternate; dur: 3000; loop: true">
+      </a-text>
+      <a-text value="?" color="#2E8B57" width="24" position="0.55 3.2 -3.3"
+        animation="property: position; to: 0.55 -1 -3.3; dur: 3050; easing: linear; loop: true"
+        animation__color="property: color; from: #2E8B57; to: #FF0000; dir: alternate; dur: 3000; loop: true">
+      </a-text>
+      <a-text value="?" color="#FF69B4" width="24" position="-0.75 3.2 -3.51"
+        animation="property: position; to: -0.75 -1 -3.51; dur: 2950; easing: linear; loop: true"
+        animation__color="property: color; from: #FF69B4; to: #00FF00; dir: alternate; dur: 3000; loop: true">
+      </a-text>
+      <a-text value="?" color="#FFD700" width="24" position="2.31 3.2 -3.55"
+        animation="property: position; to: 2.31 -1 -3.55; dur: 2800; easing: linear; loop: true"
+        animation__color="property: color; from: #FFD700; to: #0000FF; dir: alternate; dur: 3000; loop: true">
+      </a-text>
 
-        <a-text value="?" position="3 4.6 -3.4" color="#00FF00" width="16"
-                animation__float="property: position; dir: alternate; dur: 3200; to: 3 4.9 -3.4; loop: true"
-                animation__spin="property: rotation; to: 0 360 0; dur: 5500; easing: linear; loop: true"
-                animation__color="property: color; from: #00FF00; to: #7CFC00; dir: alternate; dur: 4500; loop: true"></a-text>
-
-        <a-text value="?" position="-2 5.0 -3.5" color="#0000FF" width="17"
-                animation__float="property: position; dir: alternate; dur: 3600; to: -2 5.3 -3.5; loop: true"
-                animation__spin="property: rotation; to: 0 360 0; dur: 5200; easing: linear; loop: true"
-                animation__color="property: color; from: #0000FF; to: #1E90FF; dir: alternate; dur: 4200; loop: true"></a-text>
-
-        <a-text value="?" position="2 5.2 -3.6" color="#FFA500" width="17"
-                animation__float="property: position; dir: alternate; dur: 3400; to: 2 5.5 -3.6; loop: true"
-                animation__spin="property: rotation; to: 0 360 0; dur: 5600; easing: linear; loop: true"
-                animation__color="property: color; from: #FFA500; to: #FFD700; dir: alternate; dur: 4000; loop: true"></a-text>
-
-        <a-text value="?" position="0 5.5 -3.4" color="#800080" width="18"
-                animation__float="property: position; dir: alternate; dur: 3000; to: 0 5.9 -3.4; loop: true"
-                animation__spin="property: rotation; to: 0 360 0; dur: 6000; easing: linear; loop: true"
-                animation__color="property: color; from: #800080; to: #DA70D6; dir: alternate; dur: 4300; loop: true"></a-text>
-
-        <a-text value="?" position="-1 4.5 -3.6" color="#00CED1" width="16"
-                animation__float="property: position; dir: alternate; dur: 3200; to: -1 4.8 -3.6; loop: true"
-                animation__spin="property: rotation; to: 0 360 0; dur: 4800; easing: linear; loop: true"
-                animation__color="property: color; from: #00CED1; to: #40E0D0; dir: alternate; dur: 4400; loop: true"></a-text>
-
-        <a-text value="?" position="1 4.6 -3.5" color="#DC143C" width="16"
-                animation__float="property: position; dir: alternate; dur: 2800; to: 1 4.9 -3.5; loop: true"
-                animation__spin="property: rotation; to: 0 360 0; dur: 5000; easing: linear; loop: true"
-                animation__color="property: color; from: #DC143C; to: #FF4500; dir: alternate; dur: 4000; loop: true"></a-text>
-
-        <a-text value="?" position="0.5 4.8 -3.5" color="#2E8B57" width="17"
-                animation__float="property: position; dir: alternate; dur: 3100; to: 0.5 5.1 -3.5; loop: true"
-                animation__spin="property: rotation; to: 0 360 0; dur: 5200; easing: linear; loop: true"
-                animation__color="property: color; from: #2E8B57; to: #3CB371; dir: alternate; dur: 4100; loop: true"></a-text>
-      </a-entity>
-
-      <!-- Caja girando continuamente -->
+      <!-- Figuras animadas -->
       <a-box position="-1 0.5 -3" rotation="0 0 0" color="#4CC3D9"
              animation="property: rotation; to: 0 360 0; dur: 4000; easing: linear; loop: true">
       </a-box>
 
-      <!-- Esfera con animación de latido -->
       <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"
-                animation="property: scale; dir: alternate; dur: 1000; easing: easeInOutSine;
-                           to: 1.3 1.3 1.3; loop: true">
+                animation="property: scale; dir: alternate; dur: 1000; easing: easeInOutSine; to: 1.3 1.3 1.3; loop: true">
       </a-sphere>
 
-      <!-- Cilindro que sube y baja suavemente -->
       <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"
-                  animation="property: position; dir: alternate; dur: 1500; easing: easeInOutSine;
-                             to: 1 1 -3; loop: true">
+                  animation="property: position; dir: alternate; dur: 1500; easing: easeInOutSine; to: 1 1 -3; loop: true">
       </a-cylinder>
 
-      <!-- Suelo -->
+      <!-- Suelo y cielo -->
       <a-plane position="0 0 -4" rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
-
-      <!-- Cielo -->
       <a-sky color="#ECECEC"></a-sky>
+
+      <!-- Cámara -->
+      <a-entity camera position="0 1.6 2" rotation="0 0 0"></a-entity>
     </a-scene>
   </body>
 </html>
