@@ -1,11 +1,12 @@
+<!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <title>Habitación con puerta</title>
     <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
-    <title>Habitación</title>
   </head>
   <body>
     <a-scene>
-      <!-- CAJA CON PUERTA - MYSTERY BOX -->
 
       <!-- Pared izquierda -->
       <a-box position="-1 1 -1" height="2" width="0.1" depth="2" color="#4CC3D9"></a-box>
@@ -23,24 +24,13 @@
       <a-box position="0 2 -1" height="0.1" width="2" depth="2" color="#2F4F4F"></a-box>
 
       <!-- Frente con puerta abierta -->
-
-      <!-- Parte izquierda de la puerta -->
       <a-box position="-0.75 1 -2" height="2" width="0.5" depth="0.1" color="#FF69B4"></a-box>
-
-      <!-- Parte derecha de la puerta -->
       <a-box position="0.75 1 -2" height="2" width="0.5" depth="0.1" color="#FF69B4"></a-box>
-
-      <!-- Parte superior de la puerta -->
       <a-box position="0 1.75 -2" height="0.5" width="1" depth="0.1" color="#FF69B4"></a-box>
 
-      <!-- Cámara con soporte para caminar, mirar y VR con controladores -->
-      <a-entity id="rig" wasd-controls="acceleration: 20" position="0 0 4">
-        <!-- Cámara a altura humana -->
+      <!-- Cámara con rig para caminar -->
+      <a-entity id="rig" position="0 0 3" wasd-controls="acceleration: 20">
         <a-entity camera position="0 1.6 0" look-controls></a-entity>
-
-        <!-- Controladores VR -->
-        <a-entity hand-controls="hand: left"></a-entity>
-        <a-entity hand-controls="hand: right"></a-entity>
       </a-entity>
 
       <!-- Suelo exterior para caminar hacia la caja -->
@@ -48,8 +38,7 @@
 
       <!-- Cielo -->
       <a-sky color="#ECECEC"></a-sky>
+
     </a-scene>
   </body>
 </html>
-
-         
