@@ -3,7 +3,6 @@
     <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
      <title>Habitación Esther  </title>
   </head>
-
   <body>
     <a-scene>
 
@@ -27,19 +26,19 @@
         <!-- Parte superior de la puerta -->
         <a-box position="0 1.75 -2" height="0.5" width="1" depth="0.1" color="#FF69B4"></a-box>
 
-      <!-- Fondo del cartel en la pared trasera, mirando hacia la entrada -->
-<a-plane position="0 1.7 -0.06" width="1.8" height="1" color="#222222" opacity="0.85"></a-plane>
+<!-- Cartel flotante en el interior de la caja -->
+<a-plane position="0 1.5 -1" width="1.8" height="1" color="#222222" opacity="0.9"></a-plane>
 
-<!-- Texto explicativo -->
+<!-- Texto explicativo centrado dentro del cartel -->
 <a-text value="In this activity, you must walk around and enter the other boxes to describe what you see inside. The other students will ask you questions to try to guess what is inside the mystery box."
-         position="0 1.9 -0.05"
-         width="1.7"
+         position="0 1.5 -0.99"
+         width="1.6"
          align="center"
+         baseline="center"
          wrap-count="60"
          color="#FFFFFF"
          font="mozillavr">
 </a-text>
-
 
 <!-- Controls and Camera -->
                 <a-entity id="cameraRig" position="2 1.6 0.5">
@@ -49,3 +48,5 @@
                         <a-entity></a-entity>
                         </a-entity>
                 </a-entity>
+        <body>
+    <a-scene>          
