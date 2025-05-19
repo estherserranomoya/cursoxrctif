@@ -9,34 +9,27 @@
   <a-scene>
     <!-- Assets -->
     <a-assets>
-      <img id="gym" src="gym.jpg" />
-      <img id="wood" src="https://cdn.aframe.io/a-painter/images/floor.jpg" />
-      <img id="wall" src="https://cdn.aframe.io/a-painter/images/floor.jpg" />
-      <a-asset-item id="door-obj" src="https://cdn.jsdelivr.net/gh/fernandojsg/aframe-babia-components/assets/door.obj"></a-asset-item>
-      <a-asset-item id="door-mtl" src="https://cdn.jsdelivr.net/gh/fernandojsg/aframe-babia-components/assets/door.mtl"></a-asset-item>
+      <img id="gym" src="gym.jpg" crossorigin="anonymous" />
     </a-assets>
 
     <!-- Luces -->
-    <a-entity light="type: ambient; color: #fff; intensity: 0.85"></a-entity>
+    <a-entity light="type: ambient; color: #ffffff; intensity: 0.6"></a-entity>
+    <a-entity light="type: directional; color: #ffffff; intensity: 0.8" position="1 2 1"></a-entity>
 
     <!-- Piso -->
-    <a-box position="0 0 0" rotation="0 0 0" width="7" height="0.1" depth="9" material="src: #wood; repeat: 4 4"></a-box>
+    <a-box position="0 0 0" width="7" height="0.1" depth="9" material="color: white"></a-box>
 
     <!-- Techo -->
-    <a-box position="0 3 0" width="7" height="0.1" depth="9" material="src: #wall; repeat: 4 4"></a-box>
-
-    <!-- Puerta -->
-    <a-entity obj-model="obj: #door-obj; mtl: #door-mtl" position="3.4 1.2 -2.7" rotation="-90 -90 0" scale="0.013 0.013 0.011"></a-entity>
+    <a-box position="0 3 0" width="7" height="0.1" depth="9" material="color: white"></a-box>
 
     <!-- Paredes -->
-    <a-box position="3.65 1.5 0" width="0.5" height="3" depth="8.7" material="src: #wall"></a-box>
-    <a-box position="-3.5 1.5 0" width="0.3" height="3" depth="8.7" material="src: #wall"></a-box>
-    <a-box position="0 1.5 -4.5" width="7" height="3" depth="0.3" material="src: #wall"></a-box>
-    <a-box position="0 1.5 4.5" width="7.3" height="3" depth="0.3" material="src: #wall"></a-box>
+    <a-box position="3.65 1.5 0" width="0.5" height="3" depth="8.7" material="color: white"></a-box>
+    <a-box position="-3.5 1.5 0" width="0.3" height="3" depth="8.7" material="color: white"></a-box>
+    <a-box position="0 1.5 -4.5" width="7" height="3" depth="0.3" material="color: white"></a-box>
+    <a-box position="0 1.5 4.5" width="7.3" height="3" depth="0.3" material="color: white"></a-box>
 
     <!-- Sky con la imagen 360 -->
     <a-sky src="#gym"></a-sky>
-
   </a-scene>
 </body>
 </html>
