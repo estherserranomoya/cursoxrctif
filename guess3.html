@@ -1,11 +1,87 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>3</title>
-</head>
-<body>
-  <h1>Este es un tigre</h1>
-  <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/tiger-1958260_1280.jpg" alt="Tigre en la selva" width="500">
-</body>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Find the Object Game - Multi Round</title>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+
+      <!-- Piso -->
+      <a-plane rotation="-90 0 0" width="10" height="10" color="#EEE"></a-plane>
+
+      <!-- Instrucción -->
+      <a-text id="instruction" value="Click on the..." position="0 3.5 -4" color="#000" align="center" width="6"></a-text>
+
+      <!-- Resultado -->
+      <a-text id="result" value="" position="0 3.2 -4" color="green" align="center" width="6"></a-text>
+
+      <!-- Puntuación -->
+      <a-text id="score" value="Score: 0" position="0 2.9 -4" color="#000" align="center" width="6"></a-text>
+
+      <!-- Objetos -->
+      <a-box id="bed" position="-3 0.5 -3" color="#A3C9A8" depth="1" height="1" width="2"></a-box>
+      <a-box id="chair" position="0 0.25 -3" color="#D07C7C" depth="0.5" height="0.5" width="0.5"></a-box>
+      <a-box id="table" position="3 0.4 -3" color="#F5B971" depth="1" height="0.4" width="1.5"></a-box>
+
+      <!-- Cámara -->
+      <a-entity camera look-controls position="0 1.6 0"></a-entity>
+
+      <!-- Sonidos -->
+      <a-assets>
+        <audio id="correct-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_768b5b5db1.mp3?filename=correct-2-46134.mp3"></audio>
+        <audio id="wrong-sound" src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_caf8eeb6a0.mp3?filename=error-2-29574.mp3"></audio>
+      </a-assets>
+
+      <a-entity id="correct-audio" sound="src: #correct-sound"></a-entity>
+      <a-entity id="wrong-audio" sound="src: #wrong-sound"></a-entity>
+
+      <!-- Lógica del juego -->
+      <script>
+        const options = ["bed", "chair", "table"];
+        let correctId = "";
+        let score = 0;
+
+        const instructionText = document.querySelector("#instruction");
+        const resultText = document.querySelector("#result");
+        const scoreText = document.querySelector("#score");
+        const correctAudio = document.querySelector("#correct-audio");
+        const wrongAudio = document.querySelector("#wrong-audio");
+
+        const randomizeRound = () => {
+          correctId = options[Math.floor(Math.random() * options.length)];
+          instructionText.setAttribute("value", `Click on the ${correctId}`);
+          resultText.setAttribute("value", "");
+          // Reset colors
+          options.forEach(id => {
+            const el = document.querySelector("#" + id);
+            if (id === "bed") el.setAttribute("color", "#A3C9A8");
+            if (id === "chair") el.setAttribute("color", "#D07C7C");
+            if (id === "table") el.setAttribute("color", "#F5B971");
+          });
+        };
+
+        document.querySelectorAll("a-box").forEach(box => {
+          box.addEventListener("click", () => {
+            if (box.id === correctId) {
+              box.setAttribute("color", "#4CAF50"); // verde
+              resultText.setAttribute("value", "Correct!");
+              correctAudio.components.sound.playSound();
+              score++;
+              scoreText.setAttribute("value", "Score: " + score);
+              setTimeout(randomizeRound, 1500);
+            } else {
+              box.setAttribute("color", "#F44336"); // rojo
+              resultText.setAttribute("value", "Oops! Try again.");
+              wrongAudio.components.sound.playSound();
+            }
+          });
+        });
+
+        // Comienza el juego
+        randomizeRound();
+      </script>
+    </a-scene>
+  </body>
 </html>
