@@ -1,42 +1,50 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <title>2</title>
-    <style>
-      body { margin: 0; }
-      canvas { display: block; }
-    </style>
+    <meta charset="utf-8" />
+    <title>Escena con Robot</title>
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
   </head>
   <body>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
-    <script>
-      // Escena
-      const scene = new THREE.Scene();
+    <a-scene>
+      <a-assets>
+        <img id="baldosa" src="baldosa.jpg">
+        <a-asset-item id="robot" src="robot.obj"></a-asset-item>
+      </a-assets>
 
-      // Cámara
-      const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-      camera.position.z = 5;
+      <!-- Pared izquierda -->
+      <a-box position="-1 1 -1" height="2" width="0.1" depth="2" color="#4CC3D9"></a-box>
+      <!-- Pared derecha -->
+      <a-box position="1 1 -1" height="2" width="0.1" depth="2" color="#FFB6C1"></a-box>
+      <!-- Pared trasera -->
+      <a-box position="0 1 0" height="2" width="2" depth="0.1" color="#FF00FF"></a-box>
+      <!-- Piso -->
+      <a-box position="0 0 -1" height="0.1" width="2" depth="2" color="#FF7F50"></a-box>
+      <!-- Techo -->
+      <a-box position="0 2 -1" height="0.1" width="2" depth="2" color="#2F4F4F"></a-box>
 
-      // Renderizador
-      const renderer = new THREE.WebGLRenderer();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      document.body.appendChild(renderer.domElement);
+      <!-- Frente con puerta abierta -->
+      <a-box position="-0.75 1 -2" height="2" width="0.5" depth="0.1" color="#FF69B4"></a-box>
+      <a-box position="0.75 1 -2" height="2" width="0.5" depth="0.1" color="#FF69B4"></a-box>
+      <a-box position="0 1.75 -2" height="0.5" width="1" depth="0.1" color="#FF69B4"></a-box>
 
-      // Geometría y material del cubo
-      const geometry = new THREE.BoxGeometry();
-      const material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true });
-      const cube = new THREE.Mesh(geometry, material);
-      scene.add(cube);
+      <!-- Robot 3D en lugar del cubo -->
+      <a-entity gltf-model="#robot"
+                position="0 0.1 -1"
+                scale="0.5 0.5 0.5"
+                animation="property: rotation; to: 0 360 0; dur: 6000; easing: linear; loop: true">
+      </a-entity>
 
-      // Animación
-      function animate() {
-        requestAnimationFrame(animate);
-        cube.rotation.x += 0.01;
-        cube.rotation.y += 0.01;
-        renderer.render(scene, camera);
-      }
-      animate();
-    </script>
+      <!-- Cámara con rig ajustado fuera de la caja, mirando hacia la puerta -->
+      <a-entity id="rig" position="0.569 0 -4.332" wasd-controls="acceleration: 20">
+        <a-entity camera position="0 1.4 0" rotation="0 0 0" look-controls></a-entity>
+      </a-entity>
+
+      <!-- Suelo exterior para caminar hacia la caja -->
+      <a-plane position="0 0 0" rotation="-90 0 0" width="10" height="10" src="#baldosa"></a-plane>
+
+      <!-- Cielo -->
+      <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
   </body>
 </html>
