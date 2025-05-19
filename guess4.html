@@ -1,56 +1,67 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Habitación grande con ventanas</title>
-  <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
-</head>
-<body>
-  <a-scene>
-    <!-- Assets -->
-    <a-assets>
-      <img id="gym" src="gym.jpg" crossorigin="anonymous" />
-      <img id="window-texture" src="https://cdn.aframe.io/a-painter/images/fence.png" />
-    </a-assets>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Museo Virtual</title>
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <!-- Assets -->
+      <a-assets>
+        <img id="sky" src="gym.jpg" crossorigin="anonymous" />
+        <img id="wood" src="https://cdn.aframe.io/a-painter/images/floor.jpg" />
+        <img id="wall" src="https://cdn.aframe.io/a-painter/images/floor.jpg" />
+      </a-assets>
 
-    <!-- Luces -->
-    <a-entity light="type: ambient; color: #ffffff; intensity: 0.6"></a-entity>
-    <a-entity light="type: directional; color: #ffffff; intensity: 0.8" position="1 2 1"></a-entity>
+      <!-- Cielo 360 -->
+      <a-sky src="#sky"></a-sky>
 
-    <!-- Piso y techo más grandes -->
-    <a-box position="0 0 0" width="10" height="0.1" depth="14" material="color: white"></a-box>
-    <a-box position="0 4 0" width="10" height="0.1" depth="14" material="color: white"></a-box>
+      <!-- Luces -->
+      <a-entity light="type: ambient; color: #fff; intensity: 0.8"></a-entity>
+      <a-entity light="type: point; intensity: 0.7; distance: 20" position="0 3 0"></a-entity>
 
-    <!-- Pared derecha (2 ventanas) -->
-    <a-box position="5 2 4" width="0.3" height="4" depth="5" material="color: white"></a-box>
-    <a-box position="5 2 -4" width="0.3" height="4" depth="5" material="color: white"></a-box>
-    <!-- Ventanas -->
-    <a-plane position="5.01 2 1.5" rotation="0 90 0" width="2" height="1.5" material="src: #window-texture; transparent: true; opacity: 0.7"></a-plane>
-    <a-plane position="5.01 2 -1.5" rotation="0 90 0" width="2" height="1.5" material="src: #window-texture; transparent: true; opacity: 0.7"></a-plane>
+      <!-- Piso -->
+      <a-box position="0 0 0" width="10" height="0.1" depth="10" material="src: #wood"></a-box>
 
-    <!-- Pared izquierda (2 ventanas) -->
-    <a-box position="-5 2 4" width="0.3" height="4" depth="5" material="color: white"></a-box>
-    <a-box position="-5 2 -4" width="0.3" height="4" depth="5" material="color: white"></a-box>
-    <!-- Ventanas -->
-    <a-plane position="-5.01 2 1.5" rotation="0 -90 0" width="2" height="1.5" material="src: #window-texture; transparent: true; opacity: 0.7"></a-plane>
-    <a-plane position="-5.01 2 -1.5" rotation="0 -90 0" width="2" height="1.5" material="src: #window-texture; transparent: true; opacity: 0.7"></a-plane>
+      <!-- Techo -->
+      <a-box position="0 3 0" width="10" height="0.1" depth="10" material="src: #wall"></a-box>
 
-    <!-- Pared del fondo (2 ventanas) -->
-    <a-box position="-3 2 -7" width="4" height="4" depth="0.3" material="color: white"></a-box>
-    <a-box position="3 2 -7" width="4" height="4" depth="0.3" material="color: white"></a-box>
-    <!-- Ventanas -->
-    <a-plane position="0 2 -6.99" rotation="0 0 0" width="2" height="1.5" material="src: #window-texture; transparent: true; opacity: 0.7"></a-plane>
-    <a-plane position="0 2 -6.99" rotation="0 0 0" width="5" height="0.01" material="color: transparent"></a-plane> <!-- solo para alinear -->
+      <!-- Pared izquierda (con 2 ventanas simuladas) -->
+      <a-box position="-5 0.75 -2.5" width="0.2" height="1.5" depth="2.5" material="color: white"></a-box>
+      <a-box position="-5 0.75 2.5"  width="0.2" height="1.5" depth="2.5" material="color: white"></a-box>
+      <a-box position="-5 2.25 -2.5" width="0.2" height="1.5" depth="2.5" material="color: white"></a-box>
+      <a-box position="-5 2.25 2.5"  width="0.2" height="1.5" depth="2.5" material="color: white"></a-box>
 
-    <!-- Pared frontal (2 ventanas) -->
-    <a-box position="-3 2 7" width="4" height="4" depth="0.3" material="color: white"></a-box>
-    <a-box position="3 2 7" width="4" height="4" depth="0.3" material="color: white"></a-box>
-    <!-- Ventanas -->
-    <a-plane position="-1.5 2 6.99" rotation="0 0 0" width="2" height="1.5" material="src: #window-texture; transparent: true; opacity: 0.7"></a-plane>
-    <a-plane position="1.5 2 6.99" rotation="0 0 0" width="2" height="1.5" material="src: #window-texture; transparent: true; opacity: 0.7"></a-plane>
+      <!-- Pared derecha (con 2 ventanas simuladas) -->
+      <a-box position="5 0.75 -2.5" width="0.2" height="1.5" depth="2.5" material="color: white"></a-box>
+      <a-box position="5 0.75 2.5"  width="0.2" height="1.5" depth="2.5" material="color: white"></a-box>
+      <a-box position="5 2.25 -2.5" width="0.2" height="1.5" depth="2.5" material="color: white"></a-box>
+      <a-box position="5 2.25 2.5"  width="0.2" height="1.5" depth="2.5" material="color: white"></a-box>
 
-    <!-- Cielo -->
-    <a-sky src="#gym"></a-sky>
-  </a-scene>
-</body>
+      <!-- Pared frontal (sin ventanas) -->
+      <a-box position="0 1.5 -5" width="10" height="3" depth="0.2" material="color: white"></a-box>
+
+      <!-- Pared trasera (sin ventanas) -->
+      <a-box position="0 1.5 5" width="10" height="3" depth="0.2" material="color: white"></a-box>
+
+      <!-- Cuadro 1 -->
+      <a-plane src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Mona_Lisa.jpg/800px-Mona_Lisa.jpg"
+               height="1.5" width="1"
+               position="-4.9 1.5 0"
+               rotation="0 90 0"></a-plane>
+
+      <!-- Cuadro 2 -->
+      <a-plane src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"
+               height="1.5" width="1"
+               position="4.9 1.5 0"
+               rotation="0 -90 0"></a-plane>
+
+      <!-- Escultura 3D -->
+      <a-entity gltf-model="https://cdn.aframe.io/test-models/models/monkey.glb"
+                scale="0.5 0.5 0.5"
+                position="0 0.5 0"></a-entity>
+    </a-scene>
+  </body>
 </html>
+
