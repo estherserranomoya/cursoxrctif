@@ -7,6 +7,9 @@
   </head>
   <body>
     <a-scene>
+      <a-assets>
+        <img id="baldosa" src="baldosa.jpg">
+      </a-assets>
 
       <!-- Pared izquierda -->
       <a-box position="-1 1 -1" height="2" width="0.1" depth="2" color="#4CC3D9"></a-box>
@@ -39,7 +42,7 @@
       </a-entity>
 
       <!-- Suelo exterior para caminar hacia la caja -->
-      <a-plane position="0 0 0" rotation="-90 0 0" width="10" height="10" color="#A9A9A9"></a-plane>
+      <a-plane position="0 0 0" rotation="-90 0 0" width="10" height="10" src="#baldosa"></a-plane>
 
       <!-- Cielo -->
       <a-sky color="#ECECEC"></a-sky>
