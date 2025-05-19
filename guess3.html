@@ -8,82 +8,38 @@
   <body>
     <a-scene>
       <!-- Piso -->
-      <a-plane rotation="-90 0 0" width="10" height="10" color="#ECECEC"></a-plane>
+      <a-plane rotation="-90 0 0" width="10" height="10" color="#ccc"></a-plane>
+
+      <!-- Paredes -->
+      <a-box position="0 2 -5" width="10" height="4" depth="0.1" color="#FAFAFA"></a-box>
+      <a-box position="-5 2 0" width="0.1" height="4" depth="10" color="#EFEFEF"></a-box>
+      <a-box position="5 2 0" width="0.1" height="4" depth="10" color="#EFEFEF"></a-box>
+
+      <!-- Cama -->
+      <a-box position="-2 0.25 -2" width="2" height="0.5" depth="1" color="#A3C9A8"></a-box>
+      <a-text value="This is a bed" position="-2 1 -2" color="#000" align="center" width="4"></a-text>
+
+      <!-- Mesa -->
+      <a-box position="1 0.25 -2" width="1.5" height="0.4" depth="1" color="#F5B971"></a-box>
+      <a-text value="This is a table" position="1 1 -2" color="#000" align="center" width="4"></a-text>
+
+      <!-- Silla -->
+      <a-box position="1 0.25 -0.5" width="0.5" height="0.5" depth="0.5" color="#D07C7C"></a-box>
+      <a-text value="This is a chair" position="1 1 -0.5" color="#000" align="center" width="4"></a-text>
+
+      <!-- Lámpara -->
+      <a-sphere position="0 3 -2" radius="0.2" color="#FFFF66"></a-sphere>
+      <a-text value="This is a lamp" position="0 3.5 -2" color="#000" align="center" width="4"></a-text>
+
+      <!-- Refrigerador -->
+      <a-box position="-3 1 -3" width="1" height="2" depth="1" color="#C0D6E4"></a-box>
+      <a-text value="This is a fridge" position="-3 2.5 -3" color="#000" align="center" width="4"></a-text>
+
+      <!-- Cielo -->
+      <a-sky color="#DFF6FF"></a-sky>
 
       <!-- Cámara -->
-      <a-entity camera look-controls position="0 1.6 0"></a-entity>
-
-      <!-- Instrucciones -->
-      <a-text id="instruction" value="Click on the chair" position="0 3 -4" color="#111" align="center" width="6"></a-text>
-      <a-text id="result" value="" position="0 2.7 -4" color="green" align="center" width="6"></a-text>
-      <a-text id="score" value="Score: 0" position="0 2.4 -4" color="#000" align="center" width="6"></a-text>
-
-      <!-- Modelos 3D -->
-      <a-entity id="bed" 
-                gltf-model="https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Models@master/2.0/Avocado/glTF/Avocado.gltf" 
-                position="-3 0 -4" 
-                scale="2 2 2">
-      </a-entity>
-
-      <a-entity id="chair" 
-                gltf-model="https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Models@master/2.0/Chair/glTF/Chair.gltf" 
-                position="0 0 -4" 
-                scale="1.5 1.5 1.5">
-      </a-entity>
-
-      <a-entity id="table" 
-                gltf-model="https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Models@master/2.0/CesiumMan/glTF/CesiumMan.gltf" 
-                position="3 0 -4" 
-                scale="1 1 1">
-      </a-entity>
-
-      <!-- Audio -->
-      <a-assets>
-        <audio id="correct-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_768b5b5db1.mp3"></audio>
-        <audio id="wrong-sound" src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_caf8eeb6a0.mp3"></audio>
-      </a-assets>
-
-      <a-entity id="correct-audio" sound="src: #correct-sound"></a-entity>
-      <a-entity id="wrong-audio" sound="src: #wrong-sound"></a-entity>
-
-      <!-- Lógica del juego -->
-      <script>
-        const objects = ["bed", "chair", "table"];
-        let correctId = "";
-        let score = 0;
-
-        const instruction = document.getElementById("instruction");
-        const result = document.getElementById("result");
-        const scoreText = document.getElementById("score");
-        const correctAudio = document.getElementById("correct-audio");
-        const wrongAudio = document.getElementById("wrong-audio");
-
-        const randomize = () => {
-          correctId = objects[Math.floor(Math.random() * objects.length)];
-          instruction.setAttribute("value", `Click on the ${correctId}`);
-          result.setAttribute("value", "");
-        };
-
-        objects.forEach(id => {
-          const el = document.getElementById(id);
-          el.addEventListener("click", () => {
-            if (id === correctId) {
-              result.setAttribute("value", "Correct!");
-              correctAudio.components.sound.playSound();
-              score++;
-              scoreText.setAttribute("value", `Score: ${score}`);
-              setTimeout(randomize, 1500);
-            } else {
-              result.setAttribute("value", "Oops! Try again.");
-              wrongAudio.components.sound.playSound();
-              score = Math.max(0, score - 1);
-              scoreText.setAttribute("value", `Score: ${score}`);
-            }
-          });
-        });
-
-        randomize();
-      </script>
+      <a-entity camera look-controls position="0 1.6 4"></a-entity>
     </a-scene>
   </body>
 </html>
