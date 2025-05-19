@@ -9,7 +9,7 @@
     <a-scene>
       <!-- Assets -->
       <a-assets>
-        <img id="sky" src="campo.jpg" crossorigin="anonymous" />
+        <img id="sky" src="gym.jpg" crossorigin="anonymous" />
         <img id="baldosa" src="baldosa.jpg" />
         <img id="gym" src="gym.jpg" />
       </a-assets>
@@ -21,66 +21,71 @@
       <a-entity light="type: ambient; color: #fff; intensity: 0.8"></a-entity>
       <a-entity light="type: point; intensity: 0.7; distance: 20" position="0 3 0"></a-entity>
 
-      <!-- Room -->
+     <!-- Room -->
       <a-entity id="Room">
-        <!-- Piso con textura -->
         <a-entity id="floorRoom" geometry="primitive: box; width: 7; depth: 9; height: 0.1"
-                  material="src: #baldosa; repeat: 7 9; shader: flat; side: double"></a-entity>
-
-        <!-- Techo -->
+                  material="shader: flat; color: #FFF"></a-entity>
         <a-entity id="ceiling" geometry="primitive: box; width: 7; depth: 9; height: 0.1"
-                  position="0 3 0" material="shader: flat; color: lightgray"></a-entity>
+                  position="0 3 0" material="shader: flat; color: #FFF"></a-entity>
+        <a-entity id="door" obj-model="obj: #door-obj; mtl: #door-mtl"
+                  position="3.4 1.2 -2.7" rotation="-90 -90 0" scale="0.013 0.013 0.011"></a-entity>
 
-        <!-- Pared derecha (rojo) -->
+        <!-- Wall 1 (ahora verde) -->
         <a-entity id="wall1" position="3.65 1.5 0">
           <a-entity id="wall1-1" geometry="primitive: box; width: 0.5; depth: 8.7; height: 3"
-                    material="shader: flat; color: red"></a-entity>
+                    material="shader: flat; color: green"></a-entity>
+          <!-- Estanterías en azul -->
           <a-entity id="shelf1-1" geometry="primitive: box; width: 0.35; depth: 2.5; height: 0.15"
-                    material="shader: flat; color: red" position="-0.4 -0.75 0"></a-entity>
+                    material="shader: flat; color: blue" position="-0.4 -0.75 0"></a-entity>
           <a-entity id="shelf1-2" geometry="primitive: box; width: 0.41; depth: 2.5; height: 0.15"
-                    material="shader: flat; color: red" position="-0.3 -0.5 2.75"></a-entity>
+                    material="shader: flat; color: blue" position="-0.3 -0.5 2.75"></a-entity>
         </a-entity>
 
-        <!-- Pared izquierda (verde) -->
+        <!-- Wall 2 (ahora roja) -->
         <a-entity id="wall2" position="-3.5 1.5 0">
           <a-entity id="wall2-1" geometry="primitive: box; width: 0.3; depth: 8.7; height: 1"
-                    position="0 -1 0" material="shader: flat; color: green"></a-entity>
+                    position="0 -1 0" material="shader: flat; color: red"></a-entity>
           <a-entity id="wall2-2" geometry="primitive: box; width: 0.3; depth: 8.7; height: 0.3"
-                    position="0 1.35 0" material="shader: flat; color: green"></a-entity>
+                    position="0 1.35 0" material="shader: flat; color: red"></a-entity>
           <a-entity id="wall2-3" geometry="primitive: box; width: 0.3; depth: 0.5; height: 1.7"
-                    position="0 0.35 0" material="shader: flat; color: green"></a-entity>
+                    position="0 0.35 0" material="shader: flat; color: red"></a-entity>
           <a-entity id="wall2-4" geometry="primitive: box; width: 0.3; depth: 0.6; height: 1.7"
-                    position="0 0.35 4.35" material="shader: flat; color: green"></a-entity>
+                    position="0 0.35 4.35" material="shader: flat; color: red"></a-entity>
           <a-entity id="wall2-5" geometry="primitive: box; width: 0.3; depth: 0.6; height: 1.7"
-                    position="0 0.35 -4.35" material="shader: flat; color: green"></a-entity>
+                    position="0 0.35 -4.35" material="shader: flat; color: red"></a-entity>
+          <!-- Estanterías en amarillo -->
+          <a-entity id="shelf2-1" geometry="primitive: box; width: 0.35; depth: 2.5; height: 0.15"
+                    material="shader: flat; color: yellow" position="0.4 -0.75 0"></a-entity>
+          <a-entity id="shelf2-2" geometry="primitive: box; width: 0.41; depth: 2.5; height: 0.15"
+                    material="shader: flat; color: yellow" position="0.3 -0.5 2.75"></a-entity>
         </a-entity>
 
-        <!-- Pared trasera (azul) -->
+        <!-- Wall 3 -->
         <a-entity id="wall3" position="0 1.5 -4.5">
           <a-entity id="wall3-1" geometry="primitive: box; width: 7; depth: 0.3; height: 3"
-                    material="shader: flat; color: blue"></a-entity>
+                    material="shader: flat; color: #FFF"></a-entity>
           <a-entity id="column3" geometry="primitive: box; width: 0.3; depth: 0.3; height: 3"
-                    position="0 0 0.15" material="shader: flat; color: blue"></a-entity>
+                    position="0 0 0.15" material="shader: flat; color: #FFF"></a-entity>
           <a-entity id="shelf3-1" geometry="primitive: box; width: 0.5; depth: 2; height: 0.15"
-                    material="shader: flat; color: blue" position="-1.75 -1 0.4" rotation="0 90 0"></a-entity>
+                    material="shader: flat; color: #FFF" position="-1.75 -1 0.4" rotation="0 90 0"></a-entity>
           <a-entity id="shelf3-2" geometry="primitive: box; width: 0.5; depth: 2; height: 0.15"
-                    material="shader: flat; color: blue" position="1.75 -0.9 0.3" rotation="0 90 0"></a-entity>
+                    material="shader: flat; color: #FFF" position="1.75 -0.9 0.3" rotation="0 90 0"></a-entity>
         </a-entity>
 
-        <!-- Pared frontal (amarilla) -->
+        <!-- Wall 4 -->
         <a-entity id="wall4" position="0 1.5 4.5">
           <a-entity id="wall4-1" geometry="primitive: box; width: 7.3; depth: 0.3; height: 1"
-                    position="0 -1 0" material="shader: flat; color: yellow"></a-entity>
+                    position="0 -1 0" material="shader: flat; color: #FFF"></a-entity>
           <a-entity id="wall4-2" geometry="primitive: box; width: 7.3; depth: 0.3; height: 0.3"
-                    position="0 1.35 0" material="shader: flat; color: yellow"></a-entity>
+                    position="0 1.35 0" material="shader: flat; color: #FFF"></a-entity>
           <a-entity id="wall4-3" geometry="primitive: box; width: 0.5; depth: 0.3; height: 1.7"
-                    position="0 0.35 0" material="shader: flat; color: yellow"></a-entity>
+                    position="0 0.35 0" material="shader: flat; color: #FFF"></a-entity>
           <a-entity id="wall4-4" geometry="primitive: box; width: 0.3; depth: 0.3; height: 1.7"
-                    position="-3.2 0.35 0" material="shader: flat; color: yellow"></a-entity>
+                    position="-3.2 0.35 0" material="shader: flat; color: #FFF"></a-entity>
           <a-entity id="wall4-5" geometry="primitive: box; width: 0.6; depth: 0.3; height: 1.7"
-                    position="3.4 0.35 0" material="shader: flat; color: yellow"></a-entity>
+                    position="3.4 0.35 0" material="shader: flat; color: #FFF"></a-entity>
           <a-entity id="column4" geometry="primitive: box; width: 0.3; depth: 0.3; height: 3"
-                    position="0 0 -0.15" material="shader: flat; color: yellow"></a-entity>
+                    position="0 0 -0.15" material="shader: flat; color: #FFF"></a-entity>
         </a-entity>
       </a-entity>
 
