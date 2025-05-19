@@ -2,118 +2,87 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Find the Object - Advanced</title>
+    <title>3</title>
     <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
   </head>
   <body>
     <a-scene>
       <!-- Piso -->
-      <a-plane rotation="-90 0 0" width="10" height="10" color="#EEE"></a-plane>
-
-      <!-- Instrucción -->
-      <a-text id="instruction" value="Click on the..." position="0 3.5 -4" color="#000" align="center" width="6"></a-text>
-
-      <!-- Resultado -->
-      <a-text id="result" value="" position="0 3.2 -4" color="green" align="center" width="6"></a-text>
-
-      <!-- Puntuación -->
-      <a-text id="score" value="Score: 0" position="-2.5 2.9 -4" color="#000" align="center" width="4"></a-text>
-
-      <!-- Tiempo restante -->
-      <a-text id="timer" value="Time: 10" position="2.5 2.9 -4" color="#000" align="center" width="4"></a-text>
-
-      <!-- Objetos -->
-      <a-box id="bed" position="-3 0.5 -3" color="#A3C9A8" depth="1" height="1" width="2"></a-box>
-      <a-box id="chair" position="0 0.25 -3" color="#D07C7C" depth="0.5" height="0.5" width="0.5"></a-box>
-      <a-box id="table" position="3 0.4 -3" color="#F5B971" depth="1" height="0.4" width="1.5"></a-box>
+      <a-plane rotation="-90 0 0" width="10" height="10" color="#ECECEC"></a-plane>
 
       <!-- Cámara -->
       <a-entity camera look-controls position="0 1.6 0"></a-entity>
 
-      <!-- Sonidos -->
+      <!-- Instrucciones -->
+      <a-text id="instruction" value="Click on the chair" position="0 3 -4" color="#111" align="center" width="6"></a-text>
+      <a-text id="result" value="" position="0 2.7 -4" color="green" align="center" width="6"></a-text>
+      <a-text id="score" value="Score: 0" position="0 2.4 -4" color="#000" align="center" width="6"></a-text>
+
+      <!-- Modelos 3D -->
+      <a-entity id="bed" 
+                gltf-model="https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Models@master/2.0/Avocado/glTF/Avocado.gltf" 
+                position="-3 0 -4" 
+                scale="2 2 2">
+      </a-entity>
+
+      <a-entity id="chair" 
+                gltf-model="https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Models@master/2.0/Chair/glTF/Chair.gltf" 
+                position="0 0 -4" 
+                scale="1.5 1.5 1.5">
+      </a-entity>
+
+      <a-entity id="table" 
+                gltf-model="https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Models@master/2.0/CesiumMan/glTF/CesiumMan.gltf" 
+                position="3 0 -4" 
+                scale="1 1 1">
+      </a-entity>
+
+      <!-- Audio -->
       <a-assets>
-        <audio id="correct-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_768b5b5db1.mp3?filename=correct-2-46134.mp3"></audio>
-        <audio id="wrong-sound" src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_caf8eeb6a0.mp3?filename=error-2-29574.mp3"></audio>
+        <audio id="correct-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_768b5b5db1.mp3"></audio>
+        <audio id="wrong-sound" src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_caf8eeb6a0.mp3"></audio>
       </a-assets>
 
       <a-entity id="correct-audio" sound="src: #correct-sound"></a-entity>
       <a-entity id="wrong-audio" sound="src: #wrong-sound"></a-entity>
 
-      <!-- Animaciones -->
-      <a-animation id="spin" attribute="rotation" to="0 360 0" dur="1000" repeat="indefinite" easing="linear" begin="start-spin"></a-animation>
-
-      <!-- Script -->
+      <!-- Lógica del juego -->
       <script>
-        const options = ["bed", "chair", "table"];
+        const objects = ["bed", "chair", "table"];
         let correctId = "";
         let score = 0;
-        let timer = 10;
-        let countdownInterval;
 
-        const instructionText = document.querySelector("#instruction");
-        const resultText = document.querySelector("#result");
-        const scoreText = document.querySelector("#score");
-        const timerText = document.querySelector("#timer");
-        const correctAudio = document.querySelector("#correct-audio");
-        const wrongAudio = document.querySelector("#wrong-audio");
+        const instruction = document.getElementById("instruction");
+        const result = document.getElementById("result");
+        const scoreText = document.getElementById("score");
+        const correctAudio = document.getElementById("correct-audio");
+        const wrongAudio = document.getElementById("wrong-audio");
 
-        const resetColors = () => {
-          document.querySelector("#bed").setAttribute("color", "#A3C9A8");
-          document.querySelector("#chair").setAttribute("color", "#D07C7C");
-          document.querySelector("#table").setAttribute("color", "#F5B971");
-          options.forEach(id => {
-            document.querySelector("#" + id).removeAttribute("animation");
-          });
+        const randomize = () => {
+          correctId = objects[Math.floor(Math.random() * objects.length)];
+          instruction.setAttribute("value", `Click on the ${correctId}`);
+          result.setAttribute("value", "");
         };
 
-        const startTimer = () => {
-          clearInterval(countdownInterval);
-          timer = 10;
-          timerText.setAttribute("value", "Time: 10");
-          countdownInterval = setInterval(() => {
-            timer--;
-            timerText.setAttribute("value", "Time: " + timer);
-            if (timer <= 0) {
-              clearInterval(countdownInterval);
-              resultText.setAttribute("value", "Time's up!");
-              wrongAudio.components.sound.playSound();
-              score = Math.max(score - 1, 0);
-              scoreText.setAttribute("value", "Score: " + score);
-              setTimeout(randomizeRound, 1500);
-            }
-          }, 1000);
-        };
-
-        const randomizeRound = () => {
-          resetColors();
-          correctId = options[Math.floor(Math.random() * options.length)];
-          instructionText.setAttribute("value", `Click on the ${correctId}`);
-          resultText.setAttribute("value", "");
-          startTimer();
-        };
-
-        document.querySelectorAll("a-box").forEach(box => {
-          box.addEventListener("click", () => {
-            if (box.id === correctId) {
-              box.setAttribute("color", "#4CAF50");
-              box.setAttribute("animation", "property: rotation; to: 0 360 0; loop: true; dur: 1000");
-              resultText.setAttribute("value", "Correct!");
+        objects.forEach(id => {
+          const el = document.getElementById(id);
+          el.addEventListener("click", () => {
+            if (id === correctId) {
+              result.setAttribute("value", "Correct!");
               correctAudio.components.sound.playSound();
-              clearInterval(countdownInterval);
               score++;
-              scoreText.setAttribute("value", "Score: " + score);
-              setTimeout(randomizeRound, 1500);
+              scoreText.setAttribute("value", `Score: ${score}`);
+              setTimeout(randomize, 1500);
             } else {
-              box.setAttribute("color", "#F44336");
-              resultText.setAttribute("value", "Wrong! Try again.");
+              result.setAttribute("value", "Oops! Try again.");
               wrongAudio.components.sound.playSound();
-              score = Math.max(score - 1, 0);
-              scoreText.setAttribute("value", "Score: " + score);
+              score = Math.max(0, score - 1);
+              scoreText.setAttribute("value", `Score: ${score}`);
             }
           });
         });
 
-        randomizeRound();
+        randomize();
       </script>
     </a-scene>
   </body>
