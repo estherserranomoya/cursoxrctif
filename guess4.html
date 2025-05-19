@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <title>4</title>
-   <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
-  </head>
+  <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+</head>
 <body>
   <a-scene>
     <!-- Assets -->
     <a-assets>
-      <img id="sky" src="gym.jpg" crossorigin="gym" />
+      <img id="gym" src="gym.jpg" />
       <img id="wood" src="https://cdn.aframe.io/a-painter/images/floor.jpg" />
       <img id="wall" src="https://cdn.aframe.io/a-painter/images/floor.jpg" />
       <a-asset-item id="door-obj" src="https://cdn.jsdelivr.net/gh/fernandojsg/aframe-babia-components/assets/door.obj"></a-asset-item>
@@ -34,7 +34,6 @@
     <a-box position="0 1.5 -4.5" width="7" height="3" depth="0.3" material="src: #wall"></a-box>
     <a-box position="0 1.5 4.5" width="7.3" height="3" depth="0.3" material="src: #wall"></a-box>
 
-    
     <!-- Sky con la imagen 360 -->
     <a-sky src="#gym"></a-sky>
 
