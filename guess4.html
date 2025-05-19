@@ -9,16 +9,12 @@
   <a-scene>
     <!-- Assets -->
     <a-assets>
- 
       <img id="sky" src="gym.jpg" crossorigin="gym" />
       <img id="wood" src="https://cdn.aframe.io/a-painter/images/floor.jpg" />
       <img id="wall" src="https://cdn.aframe.io/a-painter/images/floor.jpg" />
       <a-asset-item id="door-obj" src="https://cdn.jsdelivr.net/gh/fernandojsg/aframe-babia-components/assets/door.obj"></a-asset-item>
       <a-asset-item id="door-mtl" src="https://cdn.jsdelivr.net/gh/fernandojsg/aframe-babia-components/assets/door.mtl"></a-asset-item>
     </a-assets>
-
-    <!-- Sky con la imagen 360 -->
-    <a-sky src="#gym"></a-sky>
 
     <!-- Luces -->
     <a-entity light="type: ambient; color: #fff; intensity: 0.85"></a-entity>
@@ -37,6 +33,11 @@
     <a-box position="-3.5 1.5 0" width="0.3" height="3" depth="8.7" material="src: #wall"></a-box>
     <a-box position="0 1.5 -4.5" width="7" height="3" depth="0.3" material="src: #wall"></a-box>
     <a-box position="0 1.5 4.5" width="7.3" height="3" depth="0.3" material="src: #wall"></a-box>
+
+    
+    <!-- Sky con la imagen 360 -->
+    <a-sky src="#gym"></a-sky>
+
   </a-scene>
 </body>
 </html>
