@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+     <title>Habitación Esther  </title>
+  </head>
+  <body>
+    <a-scene>
+
+        <!-- CAJA CON PUERTA - MYSTERY BOX - EXPLICACIÓN ACTIVIDAD -->
+        <!-- Lado izquierdo -->
+        <a-box position="-1 1 -1" height="2" width="0.1" depth="2" color="#4CC3D9"></a-box>
+        <!-- Lado derecho -->
+        <a-box position="1 1 -1" height="2" width="0.1" depth="2" color="#FFB6C1"></a-box>
+        <!-- Lado trasero -->
+        <a-box position="0 1 0" height="2" width="2" depth="0.1" color="#FF00FF"></a-box>
+        <!-- Base -->
+        <a-box position="0 0 -1" height="0.1" width="2" depth="2" color="#FF7F50"></a-box>
+        <!-- Tapa -->
+        <a-box position="0 2 -1" height="0.1" width="2" depth="2" color="#2F4F4F"></a-box>
+
+        <!-- Parte izquierda del frente -->
+        <a-box position="-0.75 1 -2" height="2" width="0.5" depth="0.1" color="#FF69B4"></a-box>
+        <!-- Parte derecha del frente -->
+        <a-box position="0.75 1 -2" height="2" width="0.5" depth="0.1" color="#FF69B4"></a-box>
+        <!-- Parte superior de la puerta -->
+        <a-box position="0 1.75 -2" height="0.5" width="1" depth="0.1" color="#FF69B4"></a-box>
+
+        <!-- Cartel flotante en el interior de la caja -->
+        <a-plane position="0 1.5 -1" width="1.8" height="1" color="#222222" opacity="0.9"></a-plane>
+        <!-- Texto explicativo centrado dentro del cartel -->
+        <a-text value="In this activity, you must walk around and enter the other boxes to describe what you see inside. The other students will ask you questions to try to guess what is inside each mystery box."
+         position="0 1.5 -0.99"
+         width="1.6"
+         align="center"
+         baseline="center"
+         wrap-count="60"
+         color="#FFFFFF"
+         font="mozillavr">
+        </a-text>
+
+<!-- Controls and Camera -->
+                <a-entity id="cameraRig" position="2 1.6 0.5">
+                        <a-entity id="head" camera babia-camera="raycasterMouse: .babiaxraycasterclass; 
+                        raycasterHand: .babiaxraycasterclass; teleportCollision: #floorRoom" 
+                        look-controls wasd-controls="fly: false">
+                        <a-entity></a-entity>
+                        </a-entity>
+                </a-entity>
+
+        </a-scene>
+  </body>
+</html>
+         
