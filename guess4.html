@@ -23,12 +23,9 @@
 
      <!-- Room -->
       <a-entity id="Room">
-        <a-entity id="floorRoom" geometry="primitive: box; width: 7; depth: 9; height: 0.1"
-                  src="baldosa"></a-entity>
+        <a-entity id="floorRoom" geometry="primitive: box; width: 7; depth: 9; height: 0.1" src="baldosa"></a-entity>     
         <a-entity id="ceiling" geometry="primitive: box; width: 7; depth: 9; height: 0.1"
-                  position="0 3 0" material="shader: flat; color: #FFF"></a-entity>
-        <a-entity id="door" obj-model="obj: #door-obj; mtl: #door-mtl"
-                  position="3.4 1.2 -2.7" rotation="-90 -90 0" scale="0.013 0.013 0.011"></a-entity>
+                  position="0 3 0" color: #FFF"></a-entity>
 
         <!-- Wall 1 (ahora verde) -->
         <a-entity id="wall1" position="3.65 1.5 0">
