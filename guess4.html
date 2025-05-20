@@ -24,7 +24,7 @@
      <!-- Room -->
       <a-entity id="Room">
         <a-entity id="floorRoom" geometry="primitive: box; width: 7; depth: 9; height: 0.1"
-                  material="shader: flat; src="#baldosa"></a-entity>
+                  src="baldosa"></a-entity>
         <a-entity id="ceiling" geometry="primitive: box; width: 7; depth: 9; height: 0.1"
                   position="0 3 0" material="shader: flat; color: #FFF"></a-entity>
         <a-entity id="door" obj-model="obj: #door-obj; mtl: #door-mtl"
@@ -88,18 +88,6 @@
                     position="0 0 -0.15" material="shader: flat; color: #FFF"></a-entity>
         </a-entity>
       </a-entity>
-
-
-      <!-- Cuadro 2 -->
-      <a-plane src="baldosa.jpg"
-               height="1.5" width="1"
-               position="4.9 1.5 0"
-               rotation="0 -90 0"></a-plane>
-
-      <!-- Escultura 3D -->
-      <a-entity gltf-model="https://cdn.aframe.io/test-models/models/monkey.glb"
-                scale="0.5 0.5 0.5"
-                position="0 0.5 0"></a-entity>
     </a-scene>
   </body>
 </html>
