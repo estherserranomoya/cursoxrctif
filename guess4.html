@@ -7,9 +7,6 @@
   </head>
   <body>
     <a-scene>
-      <!-- Cámara -->
-      <a-entity camera position="0 1.6 5" wasd-controls look-controls></a-entity>
-
       <!-- Assets -->
       <a-assets>
         <img id="sky" src="campo.jpg" crossorigin="anonymous" />
@@ -25,7 +22,6 @@
 
       <!-- Espacio -->
       <a-entity id="Room">
-
         <!-- Suelo con baldosa -->
         <a-box id="floorRoom" width="7" depth="9" height="0.1" src="#baldosa" position="0 0 0"></a-box>
 
@@ -38,11 +34,25 @@
         <!-- Pared 2 - Lavanda -->
         <a-box width="0.3" depth="9" height="3" position="-3.65 1.5 0" material="color: #e6e6fa"></a-box>
 
-        <!-- Pared 3 - Verde menta -->
-        <a-box width="7" depth="0.3" height="3" position="0 1.5 -4.5" material="color: #d0f0c0"></a-box>
+        <!-- Pared 3 - Verde menta con ventana -->
+        <!-- Lado izquierdo -->
+        <a-box width="2.5" height="3" depth="0.3" position="-2.25 1.5 -4.5" material="color: #d0f0c0"></a-box>
+        <!-- Lado derecho -->
+        <a-box width="2.5" height="3" depth="0.3" position="2.25 1.5 -4.5" material="color: #d0f0c0"></a-box>
+        <!-- Arriba de ventana -->
+        <a-box width="2" height="1" depth="0.3" position="0 2.5 -4.5" material="color: #d0f0c0"></a-box>
+        <!-- Abajo de ventana -->
+        <a-box width="2" height="1" depth="0.3" position="0 0.5 -4.5" material="color: #d0f0c0"></a-box>
 
-        <!-- Pared 4 - Gris claro -->
-        <a-box width="7" depth="0.3" height="3" position="0 1.5 4.5" material="color: #f5f5f5"></a-box>
+        <!-- Pared 4 - Gris claro con ventana -->
+        <!-- Lado izquierdo -->
+        <a-box width="2.5" height="3" depth="0.3" position="-2.25 1.5 4.5" material="color: #f5f5f5"></a-box>
+        <!-- Lado derecho -->
+        <a-box width="2.5" height="3" depth="0.3" position="2.25 1.5 4.5" material="color: #f5f5f5"></a-box>
+        <!-- Arriba de ventana -->
+        <a-box width="2" height="1" depth="0.3" position="0 2.5 4.5" material="color: #f5f5f5"></a-box>
+        <!-- Abajo de ventana -->
+        <a-box width="2" height="1" depth="0.3" position="0 0.5 4.5" material="color: #f5f5f5"></a-box>
       </a-entity>
     </a-scene>
   </body>
