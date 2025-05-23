@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>5</title>
+    <title>6</title>
     <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
   </head>
   <body>
@@ -33,12 +33,13 @@
                 rotation="0 0 0">
       </a-entity>
 
-      <!-- Triángulo verde en el interior -->
-      <a-entity geometry="primitive: cone; radiusBottom: 0; radiusTop: 0.3; height: 0.5; segmentsRadial: 3"
-                material="color: green"
-                position="0 0.1 -1"
-                rotation="0 0 0">
-      </a-entity>
+<a-entity geometry="primitive: cone; radiusBottom: 0; radiusTop: 0.3; height: 0.5; segmentsRadial: 3"
+          material="color: green"
+          position="0 1.25 -1"
+          rotation="0 0 0"
+          animation="property: rotation; to: 0 360 0; dur: 4000; easing: linear; loop: true">
+</a-entity>
+
 
       <!-- Cámara -->
       <a-entity id="rig" position="0.569 0 -4.332" wasd-controls="acceleration: 20">
