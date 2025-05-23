@@ -2,88 +2,47 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title>4</title>
+    <title>Espacio de la Calma</title>
     <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
   </head>
   <body>
     <a-scene>
+      <!-- Cámara -->
+      <a-entity camera position="0 1.6 5" wasd-controls look-controls></a-entity>
+
       <!-- Assets -->
       <a-assets>
         <img id="sky" src="campo.jpg" crossorigin="anonymous" />
-        <img id="baldosa" src="baldosa.jpg" />
-        <img id="gym" src="gym.jpg" />
+        <img id="baldosa" src="baldosa.jpg" crossorigin="anonymous" />
       </a-assets>
 
-      <!-- Cielo 360 -->
+      <!-- Cielo -->
       <a-sky src="#sky"></a-sky>
 
       <!-- Luces -->
-      <a-entity light="type: ambient; color: #fff; intensity: 0.8"></a-entity>
-      <a-entity light="type: point; intensity: 0.7; distance: 20" position="0 3 0"></a-entity>
+      <a-entity light="type: ambient; color: #fff; intensity: 0.9"></a-entity>
+      <a-entity light="type: point; intensity: 0.6; distance: 20" position="0 3 0"></a-entity>
 
-     <!-- Room -->
+      <!-- Espacio -->
       <a-entity id="Room">
-        <a-entity id="floorRoom" geometry="primitive: box; width: 7; depth: 9; height: 0.1" src="baldosa"></a-entity>     
-        <a-entity id="ceiling" geometry="primitive: box; width: 7; depth: 9; height: 0.1"
-                  position="0 3 0" color: #F0FFFF"></a-entity>
 
-        <!-- Wall 1 (ahora verde) -->
-        <a-entity id="wall1" position="3.65 1.5 0">
-          <a-entity id="wall1-1" geometry="primitive: box; width: 0.5; depth: 8.7; height: 3"
-                    material="shader: flat; color: green"></a-entity>
-          <!-- Estanterías en azul -->
-          <a-entity id="shelf1-1" geometry="primitive: box; width: 0.35; depth: 2.5; height: 0.15"
-                    material="shader: flat; color: blue" position="-0.4 -0.75 0"></a-entity>
-          <a-entity id="shelf1-2" geometry="primitive: box; width: 0.41; depth: 2.5; height: 0.15"
-                    material="shader: flat; color: blue" position="-0.3 -0.5 2.75"></a-entity>
-        </a-entity>
+        <!-- Suelo con baldosa -->
+        <a-box id="floorRoom" width="7" depth="9" height="0.1" src="#baldosa" position="0 0 0"></a-box>
 
-        <!-- Wall 2 (ahora roja) -->
-        <a-entity id="wall2" position="-3.5 1.5 0">
-          <a-entity id="wall2-1" geometry="primitive: box; width: 0.3; depth: 8.7; height: 1"
-                    position="0 -1 0" material="shader: flat; color: red"></a-entity>
-          <a-entity id="wall2-2" geometry="primitive: box; width: 0.3; depth: 8.7; height: 0.3"
-                    position="0 1.35 0" material="shader: flat; color: red"></a-entity>
-          <a-entity id="wall2-3" geometry="primitive: box; width: 0.3; depth: 0.5; height: 1.7"
-                    position="0 0.35 0" material="shader: flat; color: red"></a-entity>
-          <a-entity id="wall2-4" geometry="primitive: box; width: 0.3; depth: 0.6; height: 1.7"
-                    position="0 0.35 4.35" material="shader: flat; color: red"></a-entity>
-          <a-entity id="wall2-5" geometry="primitive: box; width: 0.3; depth: 0.6; height: 1.7"
-                    position="0 0.35 -4.35" material="shader: flat; color: red"></a-entity>
-          <!-- Estanterías en amarillo -->
-          <a-entity id="shelf2-1" geometry="primitive: box; width: 0.35; depth: 2.5; height: 0.15"
-                    material="shader: flat; color: yellow" position="0.4 -0.75 0"></a-entity>
-          <a-entity id="shelf2-2" geometry="primitive: box; width: 0.41; depth: 2.5; height: 0.15"
-                    material="shader: flat; color: yellow" position="0.3 -0.5 2.75"></a-entity>
-        </a-entity>
+        <!-- Techo -->
+        <a-box width="7" depth="9" height="0.1" position="0 3 0" material="color: #f0f8ff"></a-box>
 
-        <!-- Wall 3 -->
-        <a-entity id="wall3" position="0 1.5 -4.5">
-          <a-entity id="wall3-1" geometry="primitive: box; width: 7; depth: 0.3; height: 3"
-                    material="shader: flat; color: #FFF"></a-entity>
-          <a-entity id="column3" geometry="primitive: box; width: 0.3; depth: 0.3; height: 3"
-                    position="0 0 0.15" material="shader: flat; color: #FFF"></a-entity>
-          <a-entity id="shelf3-1" geometry="primitive: box; width: 0.5; depth: 2; height: 0.15"
-                    material="shader: flat; color: #FFF" position="-1.75 -1 0.4" rotation="0 90 0"></a-entity>
-          <a-entity id="shelf3-2" geometry="primitive: box; width: 0.5; depth: 2; height: 0.15"
-                    material="shader: flat; color: #FFF" position="1.75 -0.9 0.3" rotation="0 90 0"></a-entity>
-        </a-entity>
+        <!-- Pared 1 - Azul suave -->
+        <a-box width="0.3" depth="9" height="3" position="3.65 1.5 0" material="color: #b0c4de"></a-box>
 
-        <!-- Wall 4 -->
-        <a-entity id="wall4" position="0 1.5 4.5">
-          <a-entity id="wall4-1" geometry="primitive: box; width: 7.3; depth: 0.3; height: 1"
-                    position="0 -1 0" material="shader: flat; color: #FFF"></a-entity>
-          <a-entity id="wall4-2" geometry="primitive: box; width: 7.3; depth: 0.3; height: 0.3"
-                    position="0 1.35 0" material="shader: flat; color: #FFF"></a-entity>
-          <a-entity id="wall4-3" geometry="primitive: box; width: 0.5; depth: 0.3; height: 1.7"
-                    position="0 0.35 0" material="shader: flat; color: #FFF"></a-entity>
-          <a-entity id="wall4-4" geometry="primitive: box; width: 0.3; depth: 0.3; height: 1.7"
-                    position="-3.2 0.35 0" material="shader: flat; color: #FFF"></a-entity>
-          <a-entity id="wall4-5" geometry="primitive: box; width: 0.6; depth: 0.3; height: 1.7"
-                    position="3.4 0.35 0" material="shader: flat; color: #FFF"></a-entity>
-          <a-entity id="column4" geometry="primitive: box; width: 0.3; depth: 0.3; height: 3"
-                    position="0 0 -0.15" material="shader: flat; color: #FFF"></a-entity>
-        </a-entity>
+        <!-- Pared 2 - Lavanda -->
+        <a-box width="0.3" depth="9" height="3" position="-3.65 1.5 0" material="color: #e6e6fa"></a-box>
+
+        <!-- Pared 3 - Verde menta -->
+        <a-box width="7" depth="0.3" height="3" position="0 1.5 -4.5" material="color: #d0f0c0"></a-box>
+
+        <!-- Pared 4 - Gris claro -->
+        <a-box width="7" depth="0.3" height="3" position="0 1.5 4.5" material="color: #f5f5f5"></a-box>
       </a-entity>
     </a-scene>
   </body>
