@@ -36,9 +36,11 @@
 <a-entity geometry="primitive: cone; radiusBottom: 0; radiusTop: 0.3; height: 0.5; segmentsRadial: 3"
           material="color: green"
           position="0 1.25 -1"
-          rotation="0 0 0"
-          animation="property: rotation; to: 0 360 0; dur: 4000; easing: linear; loop: true">
+          rotation="180 0 0"
+          animation__rot="property: rotation; to: 180 360 0; dur: 4000; easing: linear; loop: true"
+          animation__float="property: position; to: 0 1.45 -1; dur: 1500; dir: alternate; easing: easeInOutSine; loop: true">
 </a-entity>
+
 
 
       <!-- Cámara -->
